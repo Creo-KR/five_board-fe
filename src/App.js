@@ -1,5 +1,3 @@
-import React, { useRef } from 'react';
-
 import logo from './logo.svg';
 import './App.css';
 
@@ -9,7 +7,7 @@ function App() {
  var cli;
   const handleClickSendTo = () => {
     const s = { name: "USER", session: "0", content: 1 }
-    cli.sendMessage("/app/sendTo", JSON.stringify(s));
+    cli.sendMessage("/ws/sendTo", JSON.stringify(s));
   }
 
   return (
@@ -28,7 +26,7 @@ function App() {
           Learn React
         </a>
         <SockJsClient
-          url="http://localhost:5000/ws"
+          url="http://localhost:5000/ws/connect"
           topics={['/topic/sendTo', '/topic/template', '/topic/api']}
           onMessage={msg => { console.log(msg); }}
           ref={(client) => { cli = client; }}
