@@ -1,7 +1,7 @@
 # FIVE BOARD FRONT-END
 
-Language : `Javascript` `Typescript`
+Language : `Typescript`
 
 Framework : `React`
 
-Dependencies : `SockJS`
+Dependencies : `StompJs` `SockJS`
