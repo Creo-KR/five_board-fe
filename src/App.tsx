@@ -1,38 +1,11 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
-import SockJS  from 'sockjs-client';
-import StompJs from '@stomp/stompjs';
+import WebSocketClient from "./ws";
 
-const client = new StompJs.Client({
-  brokerURL: '/api/ws',
-  connectHeaders: {
-    login: 'user',
-    passcode: 'password',
-  },
-  debug: function (str) {
-    console.log(str);
-  },
-  reconnectDelay: 5000, //자동 재 연결
-  heartbeatIncoming: 4000,
-  heartbeatOutgoing: 4000,
-});
-
-client.onConnect = function (frame) {
-
-};
-
-client.onStompError = function (frame) {
-  console.log('Broker reported error: ' + frame.headers['message']);
-  console.log('Additional details: ' + frame.body);
-};
-
-if (typeof WebSocket !== 'function') {
-  client.webSocketFactory = () =>  new SockJS('http://localhost:15674/stomp');
-}
-
-client.activate();
+const stomp = new WebSocketClient("localhost:5000/ws/connect");
+stomp.activate();
 
 function App() {
   return (
