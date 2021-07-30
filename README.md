@@ -2,6 +2,6 @@
 
 Language : `Typescript`
 
-Framework : `React`
+Framework : `NextJs` `React`
 
 Dependencies : `StompJs` `SockJS`
