@@ -1,3 +1,3 @@
-export default () => (
-    <>Hello</>
-)
+const Index = () => <>Hello</>;
+
+export default Index;

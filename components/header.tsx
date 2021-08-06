@@ -1,5 +1,3 @@
-export default () => (
-    <>
-        HEADER
-    </>
-);;
+const Header = () => <>HEADER</>;
+
+export default Header;
